@@ -7,17 +7,15 @@ import android.os.Handler
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Slide
 import android.transition.TransitionManager
-import android.util.Log.d
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
+
+import android.view.*
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_dashboard.*
-import kotlinx.android.synthetic.main.dashboard_popup.view.*
+
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -70,21 +68,18 @@ class DashboardActivity : AppCompatActivity() {
         // Finally, show the popup window on app
         TransitionManager.beginDelayedTransition(dashboard_root)
 
-        d("shcs", "bef")
-
         Handler().postDelayed({
             run {
                 popUpWindow.showAtLocation(
                         dashboard_root, // Location to display popup window
-                        Gravity.TOP, // Exact position of layout to display popup
+                        Gravity.CENTER, // Exact position of layout to display popup
                         0, // X offset
                         0 // Y offset
                 )
-                d("shcs", "runrun")
             }
 
         }, 100)
-        
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,8 +87,18 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
         setSupportActionBar(toolbar)
 
-        popUp()
+        // if bluetooth is not connected
+        var isBluetoothConnected = false
 
+        if (!isBluetoothConnected) {
+            popUp()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_main, menu)
+        return true
     }
 
 
