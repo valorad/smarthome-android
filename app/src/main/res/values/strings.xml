@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">My First App</string>
+    <string name="app_name">Smart Home Control System</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
 </resources>

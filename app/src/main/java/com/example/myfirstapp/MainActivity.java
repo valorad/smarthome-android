@@ -3,6 +3,8 @@ import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.content.BroadcastReceiver;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import java.lang.Object;
 import android.widget.ArrayAdapter;
@@ -46,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
     private ConnectThread mConnectThread;
     private BluetoothDevice mmDevice;
     private UUID deviceUUID;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     private final BroadcastReceiver mBroadcastReceiver2 = new BroadcastReceiver() {
         @Override
@@ -507,4 +516,5 @@ public class MainActivity extends AppCompatActivity {
             registerReceiver(mBroadcastReceiver1, BTIntent);
         }
     }
+
 }
