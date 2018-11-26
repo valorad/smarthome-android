@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mi_settings"
-        android:title="Settings"
+        android:id="@+id/mi_device"
+        android:title="Device"
         app:showAsAction="never" />
     <item
         android:id="@+id/mi_about"
